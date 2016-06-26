@@ -1,4 +1,4 @@
-# Gwetur
+# Gwetur [![Build Status](https://travis-ci.org/PierreZ/gwetur.svg?branch=master)](https://travis-ci.org/PierreZ/gwetur)
 
 Progressive web app built to get data from your car and push them to a TimeSeries database called [Warp10](http://www.warp10.io/).
 
