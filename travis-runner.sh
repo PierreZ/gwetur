@@ -4,7 +4,7 @@ GH_REPO="@github.com/PierreZ/gwetur.git"
 
 FULL_REPO="https://$GH_TOKEN$GH_REPO"
 
-cp .travis.yml build/unbundled/
+cp .travis.yml build/bundled/
 cd build/unbundled
 git init
 git config user.name "travis-auto"
