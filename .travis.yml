@@ -1,10 +1,13 @@
 language: node_js
 node_js: stable
 before_script:
-- npm install bower
-- export PATH=$PWD/node_modules/.bin:$PATH
 - npm install polymer-cli
 - polymer build
+script:
+- ./travis-runner.sh
 branches:
   except:
-    - gh-pages
+  - gh-pages
+env:
+  global:
+    secure: cMpADUU7ibzEzoqdzfuex6qpMl24+oWg6Gc2PJXyBAa6GLT+KTP1NmPmiTf4CskDctq4Wplo0uSu+zwXEWUlaU4o/vwIWJUncB9MVgOj5byTVYhvWma4vb9VaXZ+P9y4LBYgWGn+1uPIQTTfvCHJitA3bq4MFtfuvF8jg7LKS8uWVnePhVGmT4e9spkLRq7M499KDr97jYfVIzUxAIlPLMkoFFv6zff1w2/jwbH4WUIjHPoit+78olfRVqhhMiR55xP36wllYj7WeeIWh78vmbMkkTP/f7BoCPFsGh5noB2i5l7o5JYDj+2V1cPqiteffnNGdZsyY8GqymxFolljEFo7zHzkGcztsdqgLGSdv3wvYewRzFQKqmeY/wzcZOSyYsFjiHFEKobooCIdqnVBuH5BeC4dvvPfwETEKOF6CkVRMrgVlXB/KVcb5UAokDTPiMxKglfO4dugYWPiOYBW7SUigw+qaUxrFU+zrqtHt7mXd3GkkiDggPSiNmX4w52r7vzMQAy8MCDH4Y7++as9zfyM2+K/gowTC9wiotoV/ps426IVJ5LYkjgPFWsmvM351Vz716a83US6f2EPf5z2OoIai9pbvRRhSAbGu2QrBGSjR3AU7zQulShP71+m389lq5/pTyXnUxx92HHnw08lzMvnGZvTVmMrzlz31SVxjAs=
