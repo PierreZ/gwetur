@@ -1,20 +1,10 @@
-# Polymer App Toolbox - Drawer Template
+# Gwetur
 
-This template is a starting point for building apps using a drawer-based
-layout.  The layout is provided by `app-layout` elements.
+Progressive web app built to get data from your car and push them to a TimeSeries database called [Warp10](http://www.warp10.io/).
 
-This template, along with the `polymer-cli` toolchain, also demonstrates use
-of the "PRPL pattern" This pattern allows fast first delivery and interaction with
-the content at the initial route requested by the user, along with fast subsequent
-navigation by pre-caching the remaining components required by the app and
-progressively loading them on-demand as the user navigates through the app.
+### Compatibility
 
-The PRPL pattern, in a nutshell:
-
-* **Push** components required for the initial route
-* **Render** initial route ASAP
-* **Pre-cache** components for remaining routes
-* **Lazy-load** and progressively upgrade next routes on-demand
+Progressive web app can only connect to a BLE (Bluetooth 4.0) device. Make sure your OBD2 is Bluetooth 4 compliant.
 
 ### Setup
 
@@ -24,19 +14,12 @@ Install [polymer-cli](https://github.com/Polymer/polymer-cli):
 
     npm install -g polymer-cli
 
-##### Initialize project from template
-
-    mkdir my-app
-    cd my-app
-    polymer init app-drawer-template
-
 ### Start the development server
 
 This command serves the app at `http://localhost:8080` and provides basic URL
 routing for the app:
 
     polymer serve
-
 
 ### Build
 
@@ -62,14 +45,3 @@ be served by a push-compatible server:
 This command serves the minified version of the app generated using fragment bundling:
 
     polymer serve build/bundled
-
-### Extend
-
-You can extend the app by adding more elements that will be demand-loaded
-e.g. based on the route, or to progressively render non-critical sections
-of the application.  Each new demand-loaded fragment should be added to the
-list of `fragments` in the included `polymer.json` file.  This will ensure
-those components and their dependencies are added to the list of pre-cached
-components (and will have bundles created in the fallback `bundled` build).
-
-
