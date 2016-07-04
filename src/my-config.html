@@ -9,58 +9,55 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <dom-module id="my-config">
 
   <template>
+    <style is="custom-style">
+    paper-button.blue {
+      color: #3f51b5;
 
-    <style>
-      :host {
-        display: block;
-        padding: 10px;
-      }
-      .card {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        margin: 24px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #757575;
-      }
-      .circle {
-        display: inline-block;
-        height: 64px;
-        width: 64px;
-        border-radius: 50%;
-        background: #ddd;
-        line-height: 64px;
-        font-size: 30px;
-        color: #555;
-        text-align: center;
-      }
-      h1 {
-        font-size: 22px;
-        margin: 16px 0;
-        color: #212121;
-      }
+    }
     </style>
-
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+    <div style="width:70%;max-width:800px; margin-left:auto; margin-right:auto; text-align:center">
+      <h1>Backend Configuration</h1>
+      <paper-input value='{{endpoint}}' label="Warp10 Endpoint"></paper-input>
+      <paper-input value='{{token}}' label="Write Token"></paper-input>
+      <paper-button class="blue" on-click="SavingToLocalStorage" toggles raised>Save</paper-button>
     </div>
-
+    <div style="text-align:center;margin-top:50px">
+      <img width="200px" src="https://avatars1.githubusercontent.com/u/4659114?v=3&s=460" />
+      <p>
+        More info on <a href="http://www.warp10.io">Warp10</a>
+      </p>
+    </div>
   </template>
 
   <script>
-
-    Polymer({
-
-      is: 'my-config'
-
-    });
+  Polymer({
+    is: 'my-config',
+    properties: {
+      endpoint: {
+        type: String,
+        notify: true
+      },
+      token: {
+        type: String,
+        notify: true
+      },
+    },
+    ready: function () {
+      this.token = localStorage.getItem("Warp10WriteToken");
+      this.endpoint = localStorage.getItem("Warp10Endpoint");
+    },
+    SavingToLocalStorage: function() {
+      localStorage.setItem("Warp10WriteToken", this.token);
+      localStorage.setItem("Warp10Endpoint", this.endpoint);
+      console.log('Saved!');
+    },
+  });
 
   </script>
 
