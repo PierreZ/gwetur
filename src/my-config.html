@@ -1,0 +1,26 @@
+<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+</head><body><dom-module id="my-config">
+
+  <template>
+    <style is="custom-style">paper-button.blue{color:#3f51b5;}</style>
+    <div style="width:70%;max-width:800px; margin-left:auto; margin-right:auto; text-align:center">
+      <h1>Backend Configuration</h1>
+      <paper-input value="{{endpoint}}" label="Warp10 Endpoint"></paper-input>
+      <paper-input value="{{token}}" label="Write Token"></paper-input>
+      <paper-button class="blue" on-click="SavingToLocalStorage" toggles="" raised="">Save</paper-button>
+    </div>
+    <div style="text-align:center;margin-top:50px">
+      <img width="200px" src="https://avatars1.githubusercontent.com/u/4659114?v=3&amp;s=460">
+      <p>
+        More info on <a href="http://www.warp10.io">Warp10</a>
+      </p>
+    </div>
+  </template>
+
+  <script>Polymer({is:"my-config",properties:{endpoint:{type:String,notify:!0},token:{type:String,notify:!0}},ready:function(){this.token=localStorage.getItem("Warp10WriteToken"),this.endpoint=localStorage.getItem("Warp10Endpoint")},SavingToLocalStorage:function(){localStorage.setItem("Warp10WriteToken",this.token),localStorage.setItem("Warp10Endpoint",this.endpoint),console.log("Saved!")}});</script>
+
+</dom-module>
+</body></html>
